@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import {
-    View,
-    Text,
-    ScrollView,
-    TouchableOpacity,
-} from 'react-native';
+import { ScrollView, StyleSheet } from 'react-native';
 
 import axios from '../utils/axios';
 
 import deviceStorage from '../utils/deviceStorage';
+import ClubsList from '../components/ClubsList';
 
 const ClubsListScreen = (props) => {
     const [school, setSchool] = useState(null);
@@ -37,28 +33,23 @@ const ClubsListScreen = (props) => {
         getSchoolInfo();
     }, []);
 
-    const renderClubs = () => {
-        const onPress = (club) => {
-            props.navigation.push('ClubDetails', {
-                club: club,
-            });
-        };
-
-        return clubs.map((club) => {
-            return (
-                <TouchableOpacity
-                    key={club._id}
-                    onPress={() => onPress(club)}
-                >
-                    <View>
-                        <Text>{club.name}</Text>
-                    </View>
-                </TouchableOpacity>
-            );
-        });
-    };
-
-    return <ScrollView>{clubs && renderClubs()}</ScrollView>;
+    return (
+        <ScrollView style={styles.screen}>
+            {clubs && (
+                <ClubsList
+                    clubs={clubs}
+                    navigation={props.navigation}
+                />
+            )}
+        </ScrollView>
+    );
 };
+
+const styles = StyleSheet.create({
+    screen: {
+        flex: 1,
+        backgroundColor: '#fff',
+    },
+});
 
 export default ClubsListScreen;

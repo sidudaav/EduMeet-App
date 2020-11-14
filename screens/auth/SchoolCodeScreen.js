@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
-import { View, Text, Button, TextInput } from 'react-native';
+import {
+    View,
+    Text,
+    Button,
+    TextInput,
+    StyleSheet,
+} from 'react-native';
 import axios from '../../utils/axios';
 
 import deviceStorage from '../../utils/deviceStorage';
@@ -26,16 +32,24 @@ const SchoolCodeScreen = (props) => {
     };
 
     return (
-        <View>
+        <View style={styles.screen}>
             <Text>Enter School Code</Text>
             <TextInput
                 autoCapitalize="characters"
                 onChangeText={(e) => setCode(e)}
                 value={code}
+                autoCorrect={false}
             />
             <Button title="Submit" onPress={handleSubmit} />
         </View>
     );
 };
+
+const styles = StyleSheet.create({
+    screen: {
+        flex: 1,
+        backgroundColor: '#fff',
+    },
+});
 
 export default SchoolCodeScreen;

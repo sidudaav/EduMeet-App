@@ -79,12 +79,17 @@ const LoginScreen = (props) => {
                         onChangeText={setUsername}
                         value={username}
                         placeholder="username"
+                        autoCapitalize="none"
+                        autoFocus={true}
+                        autoCorrect={false}
                     />
                     <TextInput
                         style={styles.loginInput}
                         onChangeText={setPassword}
                         value={password}
                         placeholder="password"
+                        autoCapitalize="none"
+                        autoCorrect={false}
                     />
                 </View>
                 <View style={styles.buttonsContainer}>

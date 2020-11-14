@@ -11,6 +11,9 @@ const MyClubsNavigator = () => {
             <MyClubs.Screen
                 name="MyClubsList"
                 component={MyClubsListScreen}
+                options={{
+                    title: 'My Clubs',
+                }}
             />
         </MyClubs.Navigator>
     );

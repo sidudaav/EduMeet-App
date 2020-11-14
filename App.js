@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-community/async-storage';
-import React from 'react';
 import 'react-native-gesture-handler';
+import React from 'react';
 
 import MainNavigator from './navigation/MainNavigator';
 
